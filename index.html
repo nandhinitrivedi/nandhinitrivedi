@@ -56,6 +56,15 @@
         ::-webkit-scrollbar-thumb:hover {
             @apply bg-custom-teal dark:bg-custom-sky;
         }
+        
+        /* Hide scrollbar for horizontal carousel but keep functionality */
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -126,8 +135,8 @@
                     <a href="#projects" class="px-10 py-4 bg-custom-navy text-custom-white hover:bg-custom-teal dark:bg-custom-beige dark:text-custom-navy dark:hover:bg-custom-sky text-xs tracking-[0.2em] uppercase transition-all duration-300">
                         View Work
                     </a> 
-                    <a href="Resume.pdf" target="_blank" class="px-10 py-4 border border-custom-beige text-custom-navy hover:bg-custom-beige dark:border-custom-teal/40 dark:text-custom-beige dark:hover:bg-custom-teal/20 text-xs tracking-[0.2em] uppercase transition-all duration-300">
-                        Curriculum Vitae
+                    <a href="Nandhini Trivedi Resume.pdf" target="_blank" class="px-10 py-4 border border-custom-beige text-custom-navy hover:bg-custom-beige dark:border-custom-teal/40 dark:text-custom-beige dark:hover:bg-custom-teal/20 text-xs tracking-[0.2em] uppercase transition-all duration-300">
+                        Resume
                     </a>
                 </div>
                 
@@ -172,32 +181,31 @@
 
         <section id="projects" class="py-24 lg:py-40 border-t border-custom-beige dark:border-custom-teal/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-end mb-16 border-b border-custom-beige dark:border-custom-teal/30 pb-6">
+                <div class="flex justify-between items-end mb-12 border-b border-custom-beige dark:border-custom-teal/30 pb-6">
                     <h2 class="font-serif text-4xl text-custom-navy dark:text-custom-white">Selected Works</h2>
                     <span class="text-sm text-custom-teal dark:text-custom-sky hidden sm:block">2024 &mdash; 2026</span>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-20 md:items-start">
+                <!-- Horizontal Scroll Container -->
+                <div class="flex overflow-x-auto gap-8 pb-12 pt-4 snap-x snap-mandatory hide-scrollbar">
                     
-                    <div class="group cursor-pointer flex flex-col md:col-span-2 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center mb-8 md:mb-16">
-                        <div class="lg:col-span-7 relative w-full aspect-video overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6 lg:mb-0">
-                            <img src="Link.png" alt="Link UI/UX Mobile Interface" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/1200x675/F5EFEB/2F4156?text=Project+Preview'">
+                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
+                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
+                            <img src="Link.png" alt="Link UI/UX Mobile Interface" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/1200x900/F5EFEB/2F4156?text=Project+Preview'">
                         </div>
-                        <div class="lg:col-span-5 flex flex-col h-full justify-center">
-                            <h3 class="font-serif text-3xl sm:text-4xl text-custom-navy dark:text-custom-white mb-4 group-hover:text-custom-teal transition-colors">Link</h3>
-                            <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-8 flex-grow text-lg leading-relaxed">
-                                A comprehensive UI/UX case study for a unified mobile platform designed to bridge the gap between early-career professionals and mentorship opportunities. The project details a complete digital product design lifecycle, moving from core design thinking methodologies to the execution of a cohesive design system and high-fidelity interfaces.
-                            </p>
-                            <div class="flex items-center justify-between mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="text-xs tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Figma</span>
-                                </div>
-                                <a href="https://www.behance.net/gallery/250094493/link?platform=direct" target="_blank" class="text-xs tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View Project</a>
+                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Link</h3>
+                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
+                            A comprehensive UI/UX case study for a unified mobile platform designed to bridge the gap between early-career professionals and mentorship opportunities. The project details a complete digital product design lifecycle, moving from core design thinking methodologies to the execution of a cohesive design system and high-fidelity interfaces.
+                        </p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Figma</span>
                             </div>
+                            <a href="https://www.behance.net/gallery/250094493/link?platform=direct" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View Project</a>
                         </div>
                     </div>
                     
-                    <div class="group cursor-pointer flex flex-col">
+                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
                         <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
                             <img src="Makeup Pouck.png" alt="Modular Makeup Organizer Prototype" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
                         </div>
@@ -207,33 +215,33 @@
                         </p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
                             <div class="flex gap-2">
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Fusion</span>
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Figma</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Fusion</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Figma</span>
                             </div>
-                            <a href="https://www.behance.net/gallery/250096935/Makeup-pouch?platform=direct" target="_blank" class="text-xs tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
+                            <a href="https://www.behance.net/gallery/250096935/Makeup-pouch?platform=direct" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
                         </div>
                     </div>
 
-                    <div class="group cursor-pointer flex flex-col md:mt-24">
-                        <div class="relative w-full aspect-[3/4] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Vehicle Design.jpeg" alt="Force Gurkha Hand-sculpted Clay Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/600x800/F5EFEB/2F4156?text=Project+Preview'">
+                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
+                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
+                            <img src="Vehicle Design.jpeg" alt="Force Gurkha Hand-sculpted Clay Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
                         </div>
                         <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Vehicle Clay Modeling</h3>
                         <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
                             A conceptual redesign of the Force Gurkha, translating military-inspired utility into a rugged, expedition-ready automotive form. This case study demonstrates a complete industrial design workflow, progressing from rapid 2D ideation and digital rendering to physical 3D surface modeling.
                         </p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex gap-2">
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Clay Modeling</span>
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Illustrator</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Clay Modeling</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Illustrator</span>
                             </div>
-                            <a href="https://www.behance.net/gallery/250096021/Vehicle-design" target="_blank" class="text-xs tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
+                            <a href="https://www.behance.net/gallery/250096021/Vehicle-design" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
                         </div>
                     </div>
 
-                    <div class="group cursor-pointer flex flex-col">
-                        <div class="relative w-full aspect-[3/4] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Espresso maker.png" alt="A-frame Espresso Maker CAD Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/600x800/F5EFEB/2F4156?text=Project+Preview'">
+                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
+                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
+                            <img src="Espresso maker.png" alt="A-frame Espresso Maker CAD Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
                         </div>
                         <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Espresso Maker</h3>
                         <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
@@ -241,14 +249,14 @@
                         </p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
                             <div class="flex gap-2">
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Autodesk Alias</span>
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">KeyShot</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Autodesk Alias</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">KeyShot</span>
                             </div>
-                            <a href="https://www.behance.net/gallery/250095789/Coffee-Maker" target="_blank" class="text-xs tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
+                            <a href="https://www.behance.net/gallery/250095789/Coffee-Maker" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
                         </div>
                     </div>
 
-                    <div class="group cursor-pointer flex flex-col md:mt-24">
+                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
                         <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
                             <img src="Disi.jpeg" alt="DISI Block-printed Silk Textile Product" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
                         </div>
@@ -258,10 +266,10 @@
                         </p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
                             <div class="flex gap-2">
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Textile Design</span>
-                                <span class="text-[10px] tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-2 py-1">Procreate</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Textile Design</span>
+                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Procreate</span>
                             </div>
-                            <a href="DISI.pdf" target="_blank" class="text-xs tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View PDF</a>
+                            <a href="DISI.pdf" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View PDF</a>
                         </div>
                     </div>
                     
@@ -334,7 +342,7 @@
                 
                 <div class="mt-16 flex justify-center space-x-8">
                     <a href="mailto:nandhinitrivedi@gmail.com" class="text-sm tracking-widest uppercase text-custom-navy/60 dark:text-custom-beige/60 hover:text-custom-teal dark:hover:text-custom-sky transition-colors pb-1">Email</a>
-                    <a href="https://www.behance.net/nandhinitrivedi" target="_blank" class="text-sm tracking-widest uppercase text-custom-navy/60 dark:text-custom-beige/60 hover:text-custom-teal dark:hover:text-custom-sky transition-colors pb-1">Behance</a>
+                    <a href="https://www.behance.net/nandinitrivedi9" target="_blank" class="text-sm tracking-widest uppercase text-custom-navy/60 dark:text-custom-beige/60 hover:text-custom-teal dark:hover:text-custom-sky transition-colors pb-1">Behance</a>
                     <a href="https://www.linkedin.com/in/nandhini-trivedi-a19607349/" target="_blank" class="text-sm tracking-widest uppercase text-custom-navy/60 dark:text-custom-beige/60 hover:text-custom-teal dark:hover:text-custom-sky transition-colors pb-1">LinkedIn</a>
                 </div>
             </div>
