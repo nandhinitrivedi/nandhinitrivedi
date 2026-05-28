@@ -153,7 +153,7 @@
                     </div>
                     
                     <div class="lg:col-span-7">
-                        <h2 class="font-serif text-3xl sm:text-4xl text-custom-navy dark:text-custom-white mb-8">Design Philosophy</h2>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-custom-navy dark:text-custom-white mb-8">About Me</h2>
                         <div class="space-y-6 text-custom-navy/80 dark:text-custom-beige font-light leading-relaxed text-lg">
                             <p>
                                 I am a dedicated Industrial Design student at PES University specializing in user-centric product development. My design philosophy is rooted in blending rigorous market research with clean, minimalist aesthetics to build sustainable hardware and lifestyle products.
@@ -181,13 +181,27 @@
 
         <section id="projects" class="py-24 lg:py-40 border-t border-custom-beige dark:border-custom-teal/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-end mb-12 border-b border-custom-beige dark:border-custom-teal/30 pb-6">
-                    <h2 class="font-serif text-4xl text-custom-navy dark:text-custom-white">Selected Works</h2>
-                    <span class="text-sm text-custom-teal dark:text-custom-sky hidden sm:block">2024 &mdash; 2026</span>
+                
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-12 border-b border-custom-beige dark:border-custom-teal/30 pb-6">
+                    <h2 class="font-serif text-4xl text-custom-navy dark:text-custom-white mb-4 sm:mb-0">Selected Works</h2>
+                    
+                    <div class="flex items-center gap-6">
+                        <span class="text-sm text-custom-teal dark:text-custom-sky hidden sm:block">2024 &mdash; 2026</span>
+                        
+                        <!-- Navigation Arrows -->
+                        <div class="flex gap-2">
+                            <button id="scroll-left" class="p-2.5 rounded-full border border-custom-beige dark:border-custom-teal/40 text-custom-navy/70 dark:text-custom-beige/70 hover:text-custom-teal hover:border-custom-teal dark:hover:text-custom-sky dark:hover:border-custom-sky transition-colors focus:outline-none" aria-label="Scroll left">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button id="scroll-right" class="p-2.5 rounded-full border border-custom-beige dark:border-custom-teal/40 text-custom-navy/70 dark:text-custom-beige/70 hover:text-custom-teal hover:border-custom-teal dark:hover:text-custom-sky dark:hover:border-custom-sky transition-colors focus:outline-none" aria-label="Scroll right">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Horizontal Scroll Container -->
-                <div class="flex overflow-x-auto gap-8 pb-12 pt-4 snap-x snap-mandatory hide-scrollbar">
+                <div id="projects-scroll-container" class="flex overflow-x-auto gap-8 pb-12 pt-4 snap-x snap-mandatory hide-scrollbar relative">
                     
                     <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
                         <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
@@ -481,6 +495,28 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
+            
+            // --- Horizontal Scroll for Projects ---
+            const projectsContainer = document.getElementById('projects-scroll-container');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+
+            if (projectsContainer && scrollLeftBtn && scrollRightBtn) {
+                const getScrollAmount = () => {
+                    const card = projectsContainer.querySelector('.group');
+                    // Get the gap dynamically, fallback to 32px (gap-8)
+                    const gap = parseInt(window.getComputedStyle(projectsContainer).gap) || 32;
+                    return card ? card.offsetWidth + gap : 300;
+                };
+
+                scrollLeftBtn.addEventListener('click', () => {
+                    projectsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                });
+
+                scrollRightBtn.addEventListener('click', () => {
+                    projectsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                });
+            }
         });
     </script>
 </body>
