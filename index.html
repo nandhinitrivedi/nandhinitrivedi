@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -27,6 +27,19 @@
                             sky: '#C8D9E6',
                             beige: '#F5EFEB',
                             white: '#FFFFFF'
+                        },
+                        'primary': {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554'
                         }
                     }
                 }
@@ -35,40 +48,37 @@
     </script>
     
     <style type="text/tailwindcss">
-        /* Base Canvas: Strict White and Navy for maximum contrast and cleanliness */
+        /* Unified Dark Mode Background */
         body {
-            @apply bg-custom-white text-custom-navy dark:bg-custom-navy dark:text-custom-beige transition-colors duration-500 selection:bg-custom-teal selection:text-custom-white dark:selection:bg-custom-sky dark:selection:text-custom-navy;
+            @apply bg-white text-gray-800 dark:bg-custom-navy dark:text-custom-beige transition-colors duration-300;
         }
         
+        /* Restored original style for the active nav link */
         .nav-link-active {
             @apply text-custom-teal dark:text-custom-sky font-medium border-b-2 border-custom-teal dark:border-custom-sky;
         }
 
+        /* Custom scrollbar matching the dark theme */
         ::-webkit-scrollbar {
-            width: 4px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
-            @apply bg-custom-white dark:bg-custom-navy;
+            background-color: #f1f1f1;
+            @apply dark:bg-custom-navy;
         }
         ::-webkit-scrollbar-thumb {
-            @apply bg-custom-beige dark:bg-custom-teal rounded-full;
+            background-color: #c1c1c1;
+            @apply dark:bg-custom-teal rounded-full;
         }
         ::-webkit-scrollbar-thumb:hover {
-            @apply bg-custom-teal dark:bg-custom-sky;
-        }
-        
-        /* Hide scrollbar for horizontal carousel but keep functionality */
-        .hide-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
+            background-color: #a8a8a8;
+            @apply dark:bg-custom-sky;
         }
     </style>
 </head>
 <body class="font-sans antialiased">
 
+    <!-- RESTORED ORIGINAL HEADER SECTION -->
     <header class="sticky top-0 z-50 w-full bg-custom-white/90 dark:bg-custom-navy/90 backdrop-blur-md border-b border-custom-beige dark:border-custom-teal/30 transition-colors duration-500">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -109,7 +119,8 @@
     </header>
 
     <main>
-        <section id="home" class="relative w-full flex items-center justify-center min-h-[calc(100vh-5rem)] py-20 lg:py-0">
+        <!-- PRESERVED ORIGINAL HERO SECTION -->
+        <section id="home" class="relative w-full flex items-center justify-center min-h-[calc(100vh-4rem)] py-20 lg:py-0 bg-custom-white dark:bg-custom-navy transition-colors duration-500 selection:bg-custom-teal selection:text-custom-white dark:selection:bg-custom-sky dark:selection:text-custom-navy">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
                 
                 <span class="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-custom-teal dark:text-custom-sky mb-8 font-semibold">
@@ -143,35 +154,168 @@
             </div>
         </section>
 
-        <section id="about" class="py-24 lg:py-40 border-t border-custom-beige dark:border-custom-teal/20">
+        <!-- ABOUT SECTION USING NEW LAYOUT -->
+        <section id="about" class="py-20 lg:py-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    <div class="lg:col-span-5 flex justify-center lg:justify-start">
-                        <div class="relative w-full max-w-sm aspect-[4/5] overflow-hidden bg-custom-beige dark:bg-custom-teal/10">
-                            <img src="Nandhini.jpeg" alt="Nandhini Trivedi Portrait" class="absolute inset-0 w-full h-full object-cover transition duration-700 ease-in-out hover:scale-[1.03]">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">About Me</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img 
+                             src="Nandhini.jpeg" 
+                             alt="Nandhini Trivedi Portrait" 
+                             class="rounded-lg shadow-xl w-64 h-64 md:w-80 md:h-80 object-cover"
+                        >
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                            I am a dedicated Industrial Design student at PES University specializing in user-centric product development. My design philosophy is rooted in blending rigorous market research with clean, minimalist aesthetics to build sustainable hardware and lifestyle products.
+                        </p>
+                        <p class="text-lg text-gray-600 dark:text-gray-300">
+                            My expertise spans the entire design process, from user research and persona mapping to rapid prototyping and model making. I have applied these skills professionally through freelance design and an internship with Euro Kids, delivering impactful, print-ready visual communication. Driven by a commitment to academic and creative excellence, I am a proud recipient of the CNR Scholarship and an active organizer for events like the Aatmatrisha Fest.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-20">
+                    <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-10">Technical & Design Tooling</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">Figma</span>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">Autodesk Fusion</span>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">Autodesk Alias</span>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">KeyShot</span>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">Procreate</span>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 p-4 rounded-lg shadow-sm">
+                            <span class="text-lg font-medium text-gray-700 dark:text-gray-200">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION USING NEW LAYOUT -->
+        <section id="projects" class="py-20 lg:py-32 bg-gray-50 dark:bg-custom-navy">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Selected Works</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <div class="bg-white dark:bg-white/5 border border-transparent dark:border-white/10 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img 
+                            src="Makeup Pouch.png" 
+                            alt="Modular Makeup Organizer Prototype" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Project+Preview'"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Makeup Organizer</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                A user-centric makeup organizer that eliminates product damage and spills through a modular, cylindrical architecture and an innovative spiral zipper system.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Fusion</span>
+                                <span class="inline-block bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Figma</span>
+                            </div>
+                            <div class="mt-auto flex space-x-4">
+                                <a href="https://www.behance.net/gallery/250096935/Makeup-pouch?platform=direct" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">Behance</a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="lg:col-span-7">
-                        <h2 class="font-serif text-3xl sm:text-4xl text-custom-navy dark:text-custom-white mb-8">About Me</h2>
-                        <div class="space-y-6 text-custom-navy/80 dark:text-custom-beige font-light leading-relaxed text-lg">
-                            <p>
-                                I am a dedicated Industrial Design student at PES University specializing in user-centric product development. My design philosophy is rooted in blending rigorous market research with clean, minimalist aesthetics to build sustainable hardware and lifestyle products.
+                    <div class="bg-white dark:bg-white/5 border border-transparent dark:border-white/10 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img 
+                            src="Espresso maker.png" 
+                            alt="A-frame Espresso Maker CAD Model" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Project+Preview'"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Espresso Maker</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                A manual espresso maker designed to elevate the everyday brewing experience through an open, ergonomic, and sustainable A-frame architecture.
                             </p>
-                            <p>
-                                My expertise spans the entire design process, from user research and persona mapping to rapid prototyping and model making. I have applied these skills professionally through freelance design and an internship with Euro Kids, delivering impactful, print-ready visual communication. Driven by a commitment to academic and creative excellence, I am a proud recipient of the CNR Scholarship and an active organizer for events like the Aatmatrisha Fest.
-                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Autodesk Alias</span>
+                                <span class="inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">KeyShot</span>
+                            </div>
+                            <div class="mt-auto flex space-x-4">
+                                <a href="https://www.behance.net/gallery/250095789/Coffee-Maker" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">Behance</a>
+                            </div>
                         </div>
-                        
-                        <div class="mt-16">
-                            <h3 class="text-xs tracking-[0.2em] uppercase text-custom-teal dark:text-custom-sky mb-6 border-b border-custom-beige dark:border-custom-teal/30 pb-4">Technical & Design Tooling</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">Figma</span>
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">Autodesk Fusion</span>
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">Autodesk Alias</span>
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">KeyShot</span>
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">Procreate</span>
-                                <span class="px-4 py-2 text-xs bg-custom-beige/50 text-custom-navy border border-custom-beige dark:bg-custom-teal/10 dark:text-custom-sky dark:border-custom-teal/30 rounded-full">Illustrator</span>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-white/5 border border-transparent dark:border-white/10 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img 
+                            src="Vehicle Design.jpeg" 
+                            alt="Force Gurkha Hand-sculpted Clay Model" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Project+Preview'"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Vehicle Clay Modeling</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                A conceptual redesign of the Force Gurkha, translating military-inspired utility into a rugged, expedition-ready automotive form.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Clay Modeling</span>
+                                <span class="inline-block bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Illustrator</span>
+                            </div>
+                            <div class="mt-auto flex space-x-4">
+                                <a href="https://www.behance.net/gallery/250096021/Vehicle-design" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">Behance</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-transparent dark:border-white/10 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img 
+                            src="Disi.jpeg" 
+                            alt="DISI Block-printed Silk Textile Product" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Project+Preview'"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">DISI: Silk for Gen Z</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                A strategic textile intervention that repositions traditional Indian silk for Gen Z consumers by transitioning from heavy garments to versatile everyday wear.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Textile Design</span>
+                                <span class="inline-block bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Procreate</span>
+                            </div>
+                            <div class="mt-auto flex space-x-4">
+                                <a href="DISI.pdf" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">View PDF</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-white/5 border border-transparent dark:border-white/10 rounded-lg shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img 
+                            src="Link.png" 
+                            alt="Link UI/UX Mobile Interface" 
+                            class="w-full h-48 object-cover"
+                            onerror="this.src='https://placehold.co/600x400/cccccc/333333?text=Project+Preview'"
+                        >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Link</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                A comprehensive UI/UX case study for a unified mobile platform designed to bridge the gap between early-career professionals and mentorship opportunities.
+                            </p>
+                            <div class="mb-4">
+                                <span class="inline-block bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Figma</span>
+                            </div>
+                            <div class="mt-auto flex space-x-4">
+                                <a href="https://www.behance.net/gallery/250094493/link?platform=direct" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -179,168 +323,57 @@
             </div>
         </section>
 
-        <section id="projects" class="py-24 lg:py-40 border-t border-custom-beige dark:border-custom-teal/20">
+        <!-- EXPERIENCE SECTION USING NEW LAYOUT -->
+        <section id="experience" class="py-20 lg:py-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-16">Curriculum Vitae</h2>
                 
-                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-12 border-b border-custom-beige dark:border-custom-teal/30 pb-6">
-                    <h2 class="font-serif text-4xl text-custom-navy dark:text-custom-white mb-4 sm:mb-0">Selected Works</h2>
-                    
-                    <div class="flex items-center gap-6">
-                        <span class="text-sm text-custom-teal dark:text-custom-sky hidden sm:block">2024 &mdash; 2026</span>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-primary-300 dark:border-primary-700">
                         
-                        <!-- Navigation Arrows -->
-                        <div class="flex gap-2">
-                            <button id="scroll-left" class="p-2.5 rounded-full border border-custom-beige dark:border-custom-teal/40 text-custom-navy/70 dark:text-custom-beige/70 hover:text-custom-teal hover:border-custom-teal dark:hover:text-custom-sky dark:hover:border-custom-sky transition-colors focus:outline-none" aria-label="Scroll left">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
-                            </button>
-                            <button id="scroll-right" class="p-2.5 rounded-full border border-custom-beige dark:border-custom-teal/40 text-custom-navy/70 dark:text-custom-beige/70 hover:text-custom-teal hover:border-custom-teal dark:hover:text-custom-sky dark:hover:border-custom-sky transition-colors focus:outline-none" aria-label="Scroll right">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Horizontal Scroll Container -->
-                <div id="projects-scroll-container" class="flex overflow-x-auto gap-8 pb-12 pt-4 snap-x snap-mandatory hide-scrollbar relative">
-                    
-                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
-                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Makeup Pouch.png" alt="Modular Makeup Organizer Prototype" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
-                        </div>
-                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Makeup Organizer</h3>
-                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
-                            A user-centric makeup organizer that eliminates product damage and spills through a modular, cylindrical architecture and an innovative spiral zipper system. This project addresses the functional flaws of the traditional "bottomless pit" pouch, translating deep user needs into a highly organized, on-the-go solution.
-                        </p>
-                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex gap-2">
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Fusion</span>
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Figma</span>
-                            </div>
-                            <a href="https://www.behance.net/gallery/250096935/Makeup-pouch?platform=direct" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
-                        </div>
-                    </div>
-
-                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
-                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Espresso maker.png" alt="A-frame Espresso Maker CAD Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
-                        </div>
-                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Espresso Maker</h3>
-                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
-                            A manual espresso maker designed to elevate the everyday brewing experience through an open, ergonomic, and sustainable A-frame architecture. The project demonstrates a complete development cycle, emphasizing practical manufacturability and hands-on prototyping from initial CAD modeling to a functional physical build.
-                        </p>
-                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex gap-2">
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Autodesk Alias</span>
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">KeyShot</span>
-                            </div>
-                            <a href="https://www.behance.net/gallery/250095789/Coffee-Maker" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
-                        </div>
-                    </div>
-
-                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
-                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Vehicle Design.jpeg" alt="Force Gurkha Hand-sculpted Clay Model" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
-                        </div>
-                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Vehicle Clay Modeling</h3>
-                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
-                            A conceptual redesign of the Force Gurkha, translating military-inspired utility into a rugged, expedition-ready automotive form. This case study demonstrates a complete industrial design workflow, progressing from rapid 2D ideation and digital rendering to physical 3D surface modeling.
-                        </p>
-                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Clay Modeling</span>
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Illustrator</span>
-                            </div>
-                            <a href="https://www.behance.net/gallery/250096021/Vehicle-design" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">Behance</a>
-                        </div>
-                    </div>
-
-                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
-                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Disi.jpeg" alt="DISI Block-printed Silk Textile Product" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/F5EFEB/2F4156?text=Project+Preview'">
-                        </div>
-                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">DISI: Silk for Gen Z</h3>
-                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
-                            A strategic textile intervention that repositions traditional Indian silk for Gen Z consumers by transitioning from heavy, occasion-bound garments to versatile, block-printed everyday wear. The project merges cultural craftsmanship with sustainable design, utilizing minimal-waste material practices.
-                        </p>
-                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex gap-2">
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Textile Design</span>
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Procreate</span>
-                            </div>
-                            <a href="DISI.pdf" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View PDF</a>
-                        </div>
-                    </div>
-
-                    <div class="group cursor-pointer flex flex-col w-[85vw] sm:w-[600px] shrink-0 snap-start">
-                        <div class="relative w-full aspect-[4/3] overflow-hidden bg-custom-beige dark:bg-custom-teal/10 mb-6">
-                            <img src="Link.png" alt="Link UI/UX Mobile Interface" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 ease-in-out group-hover:scale-105" onerror="this.src='https://placehold.co/1200x900/F5EFEB/2F4156?text=Project+Preview'">
-                        </div>
-                        <h3 class="font-serif text-2xl text-custom-navy dark:text-custom-white mb-2 group-hover:text-custom-teal transition-colors">Link</h3>
-                        <p class="text-custom-navy/70 dark:text-custom-beige font-light mb-6 flex-grow">
-                            A comprehensive UI/UX case study for a unified mobile platform designed to bridge the gap between early-career professionals and mentorship opportunities. The project details a complete digital product design lifecycle, moving from core design thinking methodologies to the execution of a cohesive design system and high-fidelity interfaces.
-                        </p>
-                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-custom-beige dark:border-custom-teal/30">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs sm:text-sm tracking-widest uppercase text-custom-teal dark:text-custom-sky border border-custom-sky dark:border-custom-teal/50 px-3 py-1.5">Figma</span>
-                            </div>
-                            <a href="https://www.behance.net/gallery/250094493/link?platform=direct" target="_blank" class="text-xs sm:text-sm tracking-widest uppercase text-custom-navy dark:text-custom-white hover:text-custom-teal transition-colors border-b border-custom-navy dark:border-custom-white hover:border-custom-teal pb-1">View Project</a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="py-24 lg:py-40 border-t border-custom-beige dark:border-custom-teal/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-serif text-4xl text-custom-navy dark:text-custom-white mb-16 border-b border-custom-beige dark:border-custom-teal/30 pb-6">Curriculum Vitae</h2>
-                
-                <div class="divide-y divide-custom-beige dark:divide-custom-teal/30">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 py-10">
-                        <div class="md:col-span-1 text-custom-teal dark:text-custom-sky text-sm tracking-wider">
-                            May 2025 &mdash; July 2025
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="text-xl text-custom-navy dark:text-custom-white font-medium mb-1">Graphic Design Intern</h3>
-                            <p class="text-sm tracking-widest text-custom-teal dark:text-custom-sky uppercase mb-4">Euro Kids, Kormangala</p>
-                            <p class="text-custom-navy/80 dark:text-custom-beige font-light leading-relaxed">
+                        <div class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-200 rounded-full -left-3 ring-8 ring-white dark:ring-custom-navy dark:bg-primary-900">
+                                <svg class="w-3 h-3 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V.75A.75.75 0 016.75 0h6.5a.75.75 0 01.75.75V6h3.25A1.75 1.75 0 0119 7.75v10.5A1.75 1.75 0 0117.25 20H2.75A1.75 1.75 0 011 18.25V7.75A1.75 1.75 0 012.75 6H6zm-.75 3a.75.75 0 000 1.5h10a.75.75 0 000-1.5H5.25z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            <h3 class="flex items-center mb-1 text-xl font-semibold text-gray-900 dark:text-white">
+                                Graphic Design Intern
+                                <span class="bg-blue-100 text-blue-800 text-sm font-medium ml-3 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Latest</span>
+                            </h3>
+                            <time class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">May 2025 - July 2025 @ Euro Kids, Kormangala</time>
+                            <p class="text-base font-normal text-gray-600 dark:text-gray-300">
                                 Delivered engaging, print-ready graphics for an educational audience by conceptualizing and executing the end-to-end design of a primary school banner. Utilized Adobe Illustrator to translate core brand values into high-quality visual assets.
                             </p>
                         </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 py-10">
-                        <div class="md:col-span-1 text-custom-teal dark:text-custom-sky text-sm tracking-wider">
-                            June 2025
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="text-xl text-custom-navy dark:text-custom-white font-medium mb-1">Freelance</h3>
-                            <p class="text-sm tracking-widest text-custom-teal dark:text-custom-sky uppercase mb-4">Self</p>
-                            <p class="text-custom-navy/80 dark:text-custom-beige font-light leading-relaxed">
+                        <div class="mb-10 ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-200 rounded-full -left-3 ring-8 ring-white dark:ring-custom-navy dark:bg-primary-900">
+                                <svg class="w-3 h-3 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v4.59L7.3 9.7a.75.75 0 00-1.1 1.02l3.25 3.5a.75.75 0 001.1 0l3.25-3.5a.75.75 0 10-1.1-1.02l-1.95 2.1V6.75z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Freelance</h3>
+                            <time class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">June 2025 @ Self</time>
+                            <p class="text-base font-normal text-gray-600 dark:text-gray-300">
                                 Executed the end-to-end design of a bespoke wedding invitation, managing layout, typography, and composition in Adobe Illustrator. Elevated the final print-ready product by seamlessly integrating custom, hand-drawn portraits created in Procreate.
                             </p>
                         </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 py-10">
-                        <div class="md:col-span-1 text-custom-teal dark:text-custom-sky text-sm tracking-wider">
-                            2023 &mdash; Present
-                        </div>
-                        <div class="md:col-span-3">
-                            <h3 class="text-xl text-custom-navy dark:text-custom-white font-medium mb-1">Bachelor of Design (Product)</h3>
-                            <p class="text-sm tracking-widest text-custom-teal dark:text-custom-sky uppercase mb-4">PES University, Bengaluru</p>
-                            <p class="text-custom-navy/80 dark:text-custom-beige font-light leading-relaxed">
+                        
+                        <div class="ml-6">
+                            <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-200 rounded-full -left-3 ring-8 ring-white dark:ring-custom-navy dark:bg-primary-900">
+                                <svg class="w-3 h-3 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v4.59L7.3 9.7a.75.75 0 00-1.1 1.02l3.25 3.5a.75.75 0 001.1 0l3.25-3.5a.75.75 0 10-1.1-1.02l-1.95 2.1V6.75z" clip-rule="evenodd"></path></svg>
+                            </span>
+                            <h3 class="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Bachelor of Design (Product)</h3>
+                            <time class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-400">2023 - Present @ PES University, Bengaluru</time>
+                            <p class="text-base font-normal text-gray-600 dark:text-gray-300">
                                 Specializing in physical product conception, user-centric research frameworks, and rapid hardware prototyping. Bridging industrial design methodology with practical software development capability.
                             </p>
                         </div>
+                        
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-32 lg:py-48 text-center border-t border-custom-beige dark:border-custom-teal/20">
+        <!-- RESTORED ORIGINAL CONTACT SECTION -->
+        <section id="contact" class="py-32 lg:py-48 text-center border-t border-custom-beige dark:border-custom-teal/20 bg-custom-white dark:bg-custom-navy transition-colors duration-500">
             <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
                 <span class="text-xs tracking-[0.2em] uppercase text-custom-teal dark:text-custom-sky mb-4 block font-medium">Let's Connect</span>
                 <h2 class="font-serif text-4xl sm:text-5xl text-custom-navy dark:text-custom-white mb-8">Ready to collaborate?</h2>
@@ -363,7 +396,8 @@
         </section>
     </main>
 
-    <footer class="py-12 bg-custom-navy text-custom-white dark:bg-custom-navy dark:border-t dark:border-custom-teal/20">
+    <!-- RESTORED ORIGINAL FOOTER SECTION -->
+    <footer class="py-12 bg-custom-navy text-custom-white dark:bg-custom-navy dark:border-t dark:border-custom-teal/20 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
             <p class="text-custom-white/60 dark:text-custom-sky/60 text-sm tracking-wider mb-4 md:mb-0">
                 &copy; 2026 Nandhini Trivedi. All rights reserved.
@@ -371,7 +405,8 @@
         </div>
     </footer>
 
-    <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-custom-teal text-custom-white dark:bg-custom-sky dark:text-custom-navy px-6 py-3 text-sm tracking-widest uppercase hidden opacity-0 transition-opacity duration-300 shadow-xl">
+    <!-- RESTORED ORIGINAL TOAST NOTIFICATION -->
+    <div id="copy-toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-custom-teal text-custom-white dark:bg-custom-sky dark:text-custom-navy px-6 py-3 text-sm tracking-widest uppercase hidden opacity-0 transition-opacity duration-300 shadow-xl z-50">
         Copied to clipboard
     </div>
 
@@ -387,6 +422,7 @@
                 mobileMenu.classList.toggle('hidden');
             });
             
+            // Close mobile menu when a link is clicked
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
@@ -401,6 +437,7 @@
             const lightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
             const darkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
 
+            // Function to update icon visibility
             function updateIcons(isDarkMode) {
                 if (isDarkMode) {
                     lightIcon.classList.remove('hidden');
@@ -415,6 +452,7 @@
                 }
             }
 
+            // Function to set theme
             function setTheme(isDarkMode) {
                 if (isDarkMode) {
                     document.documentElement.classList.add('dark');
@@ -426,16 +464,19 @@
                 updateIcons(isDarkMode);
             }
 
+            // Check for saved theme or system preference
             const isDarkMode = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
             setTheme(isDarkMode);
 
+            // Toggle logic for both buttons
             const toggleFn = () => {
                 setTheme(!document.documentElement.classList.contains('dark'));
             };
             themeToggleBtn.addEventListener('click', toggleFn);
             themeToggleBtnMobile.addEventListener('click', toggleFn);
             
-            // --- Copy Email to Clipboard ---
+
+            // --- RESTORED ORIGINAL COPY TO CLIPBOARD LOGIC ---
             const copyBtn = document.getElementById('copy-email-btn');
             const toast = document.getElementById('copy-toast');
 
@@ -465,14 +506,15 @@
                 document.body.removeChild(tempTextArea);
             });
 
+            
             // --- Active Nav Link on Scroll ---
             const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link'); 
+            const navLinks = document.querySelectorAll('.nav-link');
 
             const observerOptions = {
                 root: null,
-                rootMargin: '-20% 0px -70% 0px', 
-                threshold: 0
+                rootMargin: '0px',
+                threshold: 0.4 
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -480,10 +522,12 @@
                     if (entry.isIntersecting) {
                         const id = entry.target.getAttribute('id');
                         
+                        // Remove active class from all
                         navLinks.forEach(link => {
                             link.classList.remove('nav-link-active');
                         });
                         
+                        // Add active class to the matching link
                         const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
                         if (activeLink) {
                             activeLink.classList.add('nav-link-active');
@@ -492,31 +536,10 @@
                 });
             }, observerOptions);
 
+            // Observe each section
             sections.forEach(section => {
                 observer.observe(section);
             });
-            
-            // --- Horizontal Scroll for Projects ---
-            const projectsContainer = document.getElementById('projects-scroll-container');
-            const scrollLeftBtn = document.getElementById('scroll-left');
-            const scrollRightBtn = document.getElementById('scroll-right');
-
-            if (projectsContainer && scrollLeftBtn && scrollRightBtn) {
-                const getScrollAmount = () => {
-                    const card = projectsContainer.querySelector('.group');
-                    // Get the gap dynamically, fallback to 32px (gap-8)
-                    const gap = parseInt(window.getComputedStyle(projectsContainer).gap) || 32;
-                    return card ? card.offsetWidth + gap : 300;
-                };
-
-                scrollLeftBtn.addEventListener('click', () => {
-                    projectsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-                });
-
-                scrollRightBtn.addEventListener('click', () => {
-                    projectsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-                });
-            }
         });
     </script>
 </body>
